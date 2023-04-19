@@ -33,10 +33,10 @@
         </div>
         <% } %>
         <script>
-            const del = document.querySelectorAll('.del');
+            const deleteBtns = document.querySelectorAll('.del');
             
-            if(del){
-                del.forEach(deleteBtn => {
+            if(deleteBtns){
+                deleteBtns.forEach(deleteBtn => {
                     deleteBtn.addEventListener('click', () => {
                         let endpoint = `/${deleteBtn.dataset.doc}`
                         fetch(endpoint, {
