@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Molengo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
 :root{
     font-size: 16px;
-    font-family: 'Molengo', sans-serif;
+    font-family: 'Playfair Display', serif;
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
     --bg-primary: #581c87;
@@ -30,4 +30,69 @@ body::-webkit-scrollbar-thumb{
 
 .title{
     font-size: 32px;
+}
+
+.container{
+    padding: 50px;
+    display: block;
+    margin: 0 auto;
+    width: min-content;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+label{
+    font-size: 25px;
+}
+
+input[name="task"]{
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    padding: 10px;
+    width: 350px;
+    margin-top: 10px;
+}
+
+button{
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.task-btn{
+    margin-top: 10px;
+    padding: 7px;
+    width: 50px;
+    cursor: pointer;
+    background-color: #d8b4fe;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.task-btn:hover{
+    background-color: #c084fc;
+}
+
+.tasks-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+    font-size: 18px;
+    width: 450px;
+    border: 3px solid black;
+    padding: 0 0 0 10px;
+    border-radius: 10px;
+}
+
+.delete{
+    font-size: 18px;
+    color: #fafafa;
+    background-color: #b91c1c;
+    border: none;
+    border-radius: 0 6.5px 6.5px 0;
+    height: 100%;
+}
+
+.delete:hover{
+    background-color: #991b1b;
 }

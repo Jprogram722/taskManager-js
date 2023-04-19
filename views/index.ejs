@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager App</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/b17e211a77.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -16,18 +17,38 @@
         </nav>
     </header>
     <section>
-        <div class="container">
-            <form action="/" class="myForm" method="POST">
-                <label for="task">Enter A Task:</label>
-                <input type="text" id="task-input" name="task">
-                <button class="task-btn" type="submit">Pin</button>
-            </form>
+        <div class="border">
+            <div class="container">
+                <form action="/" class="myForm" method="POST">
+                    <label for="task">Enter A Task:</label>
+                    <input type="text" id="task-input" name="task">
+                    <button class="task-btn" type="submit">Pin</button>
+                </form>
+            </div>
         </div>
         <% for(let i = 0; i < tasks.length; ++i) {%>
         <div class="tasks-container">
-            <p>Task: <%=tasks[i]%></p>
+            <p>Task: <%=tasks[i].task %></p>
+            <a id="del" data-doc="<%= tasks[i]._id %>"><button class="delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
         </div>
         <% } %>
+        <script>
+            /*const del = document.querySelector('#del');
+
+            del.addEventListener('click', () => {
+                let endpoint = del.dataset.doc
+            });
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then(() => {
+                console.log("Request item for deletion");
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })*/
+        </script>
     </section>
 </body>
 </html>

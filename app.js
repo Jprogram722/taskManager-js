@@ -3,7 +3,6 @@
 require('dotenv').config();
 const Task = require('./models/task');
 const express = require('express');
-var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false)
@@ -25,11 +24,10 @@ app.get('/', (req,res) => {
     tasks = [];
     Task.find()
         .then((result) =>{
-            result.forEach(obj => tasks.push(obj.task));
-            res.render('index', {tasks: tasks});
+            res.render('index', {tasks: result});
         })
         .catch((err) => {
-            console.log(err);
+            console.log(err.message);
         });
 });
 
@@ -45,16 +43,15 @@ app.post('/', (req,res) => {
         console.log(`Task ${result.task} has been saved to mongoDB`);
      })
      .catch((err) =>{
-        console.log(err);
+        console.log(err.message);
      });
 
      Task.find()
         .then((result) =>{
-            result.forEach(obj => tasks.push(obj.task));
-            res.render('index', {tasks: tasks});
+            res.render('index', {tasks: result});
         })
         .catch((err) => {
-            console.log(err);
+            console.log(err.message);
         });
 });
 
