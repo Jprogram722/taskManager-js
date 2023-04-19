@@ -35,8 +35,9 @@
         <script>
             const deleteBtns = document.querySelectorAll('.del');
             
-            if(deleteBtns){
-                deleteBtns.forEach(deleteBtn => {
+            
+            deleteBtns.forEach(deleteBtn => {
+                if(deleteBtn){
                     deleteBtn.addEventListener('click', () => {
                         let endpoint = `/${deleteBtn.dataset.doc}`
                         fetch(endpoint, {
@@ -52,8 +53,9 @@
                             console.log(err.message);
                         })
                     });
-                });
-            }
+                }
+            });
+            
         </script>
     </section>
 </body>

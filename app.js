@@ -41,18 +41,18 @@ app.post('/', (req,res) => {
     task.save()
      .then((result) =>{
         console.log(`Task ${result.task} has been saved to mongoDB`);
+        Task.find()
+            .then((result) =>{
+                res.render('index', {tasks: result});
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+
      })
      .catch((err) =>{
         console.log(err.message);
      });
-
-     Task.find()
-        .then((result) =>{
-            res.render('index', {tasks: result});
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
 });
 
 app.delete('/:id', (req, res) => {
