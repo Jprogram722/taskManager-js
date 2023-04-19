@@ -29,25 +29,31 @@
         <% for(let i = 0; i < tasks.length; ++i) {%>
         <div class="tasks-container">
             <p>Task: <%=tasks[i].task %></p>
-            <a id="del" data-doc="<%= tasks[i]._id %>"><button class="delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+            <a class="del" data-doc="<%= tasks[i]._id %>"><button class="delete"><i class="fa fa-times" aria-hidden="true"></i></button></a>
         </div>
         <% } %>
         <script>
-            /*const del = document.querySelector('#del');
-
-            del.addEventListener('click', () => {
-                let endpoint = del.dataset.doc
-            });
-
-            fetch(endpoint, {
-                method: 'DELETE'
-            })
-            .then(() => {
-                console.log("Request item for deletion");
-            })
-            .catch((err) => {
-                console.log(err.message);
-            })*/
+            const del = document.querySelectorAll('.del');
+            
+            if(del){
+                del.forEach(deleteBtn => {
+                    deleteBtn.addEventListener('click', () => {
+                        let endpoint = `/${deleteBtn.dataset.doc}`
+                        fetch(endpoint, {
+                        method: 'DELETE'
+                        })
+                        .then((response) => 
+                            response.json()
+                        )
+                        .then((data) => 
+                            window.location.href = data.redirect
+                        )
+                        .catch((err) => {
+                            console.log(err.message);
+                        })
+                    });
+                });
+            }
         </script>
     </section>
 </body>

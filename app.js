@@ -55,6 +55,16 @@ app.post('/', (req,res) => {
         });
 });
 
+app.delete('/:id', (req, res) => {
+    Task.findByIdAndDelete(req.params.id)
+        .then(result => {
+            res.json({redirect: '/'});
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+})
+
 // Sends error when this function is excuted
 app.use((req, res) => {
     res.status(404).render('404', {title: 'Error'})
