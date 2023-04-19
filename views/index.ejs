@@ -8,16 +8,26 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <nav class="navbar"></nav>
-
-    <main>
-        <h1>Making a Sidebar Right Now</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, assumenda quam. Deleniti magnam aliquid explicabo sequi dolor odit labore culpa corporis, ratione aspernatur dignissimos mollitia iusto dolorum distinctio nam doloremque!</p>
-        <p>Voluptate veritatis consequatur expedita labore minima vel dolorum illo ad aut. Corporis numquam recusandae qui nisi, explicabo quae. Nulla, obcaecati. Quis perferendis suscipit officiis nisi cum doloribus nobis aliquam animi.</p>
-        <p>Deleniti quo autem ea necessitatibus at nihil laboriosam explicabo quisquam odio suscipit doloribus, labore aut molestiae ex quae corrupti alias blanditiis, omnis libero cum. Nulla dolores beatae eos deserunt minus.</p>
-        <p>Cumque inventore accusantium, dolores tempora laborum ad assumenda corrupti? At hic sunt blanditiis reiciendis nulla quas eius similique rerum asperiores. Maxime, consectetur? Nostrum tempore natus beatae laboriosam dicta suscipit eligendi.</p>
-
-        <%-title %>
-    </main>
+    <header>
+        <nav>
+            <div class="navbar">
+                <p class="title">Task Manager App</p>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <form action="/" class="myForm" method="POST">
+                <label for="task">Enter A Task:</label>
+                <input type="text" id="task-input" name="task">
+                <button class="task-btn" type="submit">Pin</button>
+            </form>
+        </div>
+        <% for(let i = 0; i < tasks.length; ++i) {%>
+        <div class="tasks-container">
+            <p>Task: <%=tasks[i]%></p>
+        </div>
+        <% } %>
+    </section>
 </body>
 </html>
