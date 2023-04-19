@@ -1,5 +1,6 @@
 // Node.js and Express code for the backend
 
+require('dotenv').config();
 const Task = require('./models/task');
 const express = require('express');
 var bodyParser = require('body-parser');
@@ -7,7 +8,7 @@ const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false)
 
-const dbURI = "mongodb+srv://JP722:Sopro1234@taskmanage.hfom9s6.mongodb.net/TaskData?retryWrites=true&w=majority";
+const dbURI = process.env.MONGODB_URI;
 
 let tasks = [];
 
